@@ -1,9 +1,11 @@
 function validar_email (email) {
-	// escreva seu código aqui
+	const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
+	return emailRegex.test(email)
 }
 
 function validar_cep (cep) {
-	// escreva seu código aqui
+	const cepRegex = /^\d{5}-\d{3}$/
+	return cepRegex.test(cep)
 }
 
 function validar_cpf (cpf) {
