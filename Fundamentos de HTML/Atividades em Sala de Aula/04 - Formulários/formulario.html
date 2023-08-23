@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Formulário de Contato</title>
+	</head>
+	<body>
+		<form>
+			<fieldset>
+				<legend>Dados Básicos</legend>
+				<label for="nome">Nome</label><input id="nome" name="nome" type="text"/><br/>
+				<label for="email">E-mail</label><input id="email" name="email" type="text" placeholder="seunome@dominio.com.br"/><br/>
+				<label for="website">Website</label><input id="website" name="website" value="http://"/><br/>
+			</fieldset>
+			<fieldset>
+				<legend>Seu curso no Instituto de Computação</legend>
+				<input id="cc" type="radio" name="curso" value="cc"><label for="cc">Ciência da Computação</label><br/>
+				<input id="es" type="radio" name="curso" value="es"><label for="es">Engenharia de Software</label><br/>
+				<input id="ec" type="radio" name="curso" value="ec"><label for="ec">Engenharia da Computação</label><br/>
+			</fieldset>
+			<fieldset>
+				<legend>Assinale as linguagens já usadas por você</legend>
+				<label for="java">Java</label><input id="java" type="checkbox" name="ling" value="java" />
+				<label for="c">C</label><input id="c" type="checkbox" name="ling" value="c" />
+				<label for="c++">C++</label><input id="c++" type="checkbox" name="ling" value="c++" />
+				<label for="perl">Perl</label><input id="perl" type="checkbox" name="ling" value="perl" />
+				<label for="python">Python</label><input id="python" type="checkbox" name="ling" value="python" />
+				<label for="javascript">JavaScript</label><input id="javascript" type="checkbox" name="ling" value="javascript" />
+			</fieldset>
+			<fieldset>
+				<legend>Dados Complementares</legend>
+				<label for="cor">Cor favorita</label><input id="cor" type="color" name="cor" />
+			</fieldset>
+		</form>
+	</body>
+</html>
