@@ -14,9 +14,27 @@
 				<option>Casado</option>
 				<option>Divorciado</option>
 			</select><br/>
-			<label>Sexo:</label>
-			<input id="masculino" name="sexo" value="Masculino"type="radio" 
-			<input id="femunino" name="sexo" value="Feminino" type="radio" />
+			<span>Sexo:</span>
+			<input id="masculino" name="sexo" value="Masculino"type="radio" /> <label>Masculino</label>
+			<input id="feminino" name="sexo" value="Feminino" type="radio" /> <label>Feminino</label>
 		</fieldset>
+		<fieldset>
+			<legend>Endereço</legend>
+			<label>CEP:</label><input id="cep" name="cep" type="number" /><br />
+			<label>Endereço:</label><input id="endereco" name="endereco" type="text" required /><br />
+		</fieldset>
+		<fieldset>
+			<legend>Contato</legend>
+			<label>Telefone:</label><input id="telefone" name="telefone" type="number" /><br/>
+			<label>Celular:</label><input id="celular" name="celular" type="number" required /><br>
+		</fieldset>
+		<fieldset>
+			<legend>Conhecimentos</legend>
+			<input name="habilidade" value="html" type="checkbox" /> <label>HTML</label>
+			<input name="habilidade" value="css" type="checkbox" /> <label>CSS</label>
+			<input name="habilidade" value="javascript" type="checkbox" /> <label>JavaScript</label><br />
+			<span>Mais conhecimentos</span><textarea id="mais-conhecimentos" name="mais-conhecimentos" rows="10"required>Digite os seus conhecimentos</textarea>
+		</fieldset>
+		<button>Enviar</button>
 	</form>
 </html>
