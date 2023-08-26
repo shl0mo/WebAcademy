@@ -1,0 +1,28 @@
+body {
+	width: 60%;
+	background-color: rgb(243,186,167);
+}
+
+p {
+	font-family: Arial;
+	font-size: 14px;
+	width: 70%;
+	text-align: left;
+}
+
+li {
+	text-align: center;
+	font-family: 'Times New Roman';
+	font-weight: 500;
+}
+
+span {
+	font-size: 15pt;
+}
+
+#wrap h1 {
+	font-size: 22pt;
+	height: 50%;
+	font-weight: bold;
+	text-align: center;
+}
