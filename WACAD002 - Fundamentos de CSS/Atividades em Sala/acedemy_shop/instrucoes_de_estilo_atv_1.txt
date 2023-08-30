@@ -1,0 +1,29 @@
+HEADER, FOOTER
+	- cor de fundo: rgb(246,222,30)
+	- cor do texto: black
+	- alinhamento do texto: center
+	
+NAV UL
+	- cor de background: #444
+	
+NAV A
+	- cor do texto: branco
+	- margem: 0 20px
+
+.destaque, .produtos
+	- background-color: #fff
+	- margem: 20px 0
+
+.produto
+	- largura 350px
+	- borda com largura: de 1px estilo: solid na cor: #ccc
+	- margem de 10px
+	- text-align center
+	
+IMG
+	- altura de 150px
+	- largura 100px
+	- margem inferior 10px
+	
+H3 
+	- tamanho da fonte de 18px
