@@ -1,0 +1,47 @@
+/* CSS inicial */
+
+body {
+	font-family: Arial, Courier, monospace;
+	text-align: center;
+}
+
+
+.container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+}
+
+.title {
+	font-size: 36px;
+	font-weight: 900;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+/* do not edit this footer */
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 52px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #eee;
+}
