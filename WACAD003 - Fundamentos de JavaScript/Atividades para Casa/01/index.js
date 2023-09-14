@@ -1,6 +1,4 @@
 /* 1. COMPLETE VARIABLE AND FUNCTION DEINITIONS */
-const customName = document.getElementById('customname')
-const radomize = document.querySelector('.radomize')
 const story = document.querySelector('.story')
 
 function randomValueFromArray (array) {
@@ -16,10 +14,14 @@ const random_story = `
 
 /* 3. EVENT LISTENER AND PARTIAL FUNCTION DEFINITION */
 
-randomize.addEventListener('click', result)
+const interval = setInterval(function () {
+	const randomize = document.querySelector('.randomize')
+	randomize.addEventListener('click', result)
+}, 500)
 
 
 function result () {
+	const customName = document.getElementById('customname')
 	if (customName.value !== '') {
 		const name = customName.value
 	}
