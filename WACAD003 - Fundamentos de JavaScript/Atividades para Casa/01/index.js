@@ -1,7 +1,7 @@
-let randomStoryEn = `One upon a time JavaScript, a language designed for the functional paradigm, met Java, a language designed for object orientation paradigm. JavaScript told Java that his name was like that because his parents were big fans of Java and because of it he was very inspired by Java. Java then asked if JavaScript knew about object orientation, to which he replied yes, which caused Java to immediately invite him to work at his company the Oracle. The invitation was accepted by JavaScript. On the first day of work, however, seeing how JavaScript fumbled with object-oriented concepts, noticing the tacky outfit he was wearing, and how he cursed the computer for unsuccessfully trying to use an "object" without having defined a overall model for it, Java fired him because he saw that that wasn't his function, since JavaScript was a classless language
+let randomStoryEn = `One upon a time JavaScript, a language designed for the functional paradigm, met Java, a language designed for object orientation paradigm. JavaScript told Java that his name was like that because his parents were big fans of Java and because of it he was very inspired by Java. Java then asked if JavaScript knew about object orientation, to which he replied yes, which caused Java to immediately invite him to work at his company the Oracle. The invitation was accepted by JavaScript. On the first day of work, however, seeing how JavaScript fumbled with object-oriented concepts, noticing the tacky outfit he was wearing, and how he cursed the computer for unsuccessfully trying to use an "object" without having defined a overall model for it, Java fired him because realized that wasn't JavaScript function, since JavaScript was a classless language
 `
 
-let randomStoryPtBr = `Certo dia, JavaScript, uma linguagem pensada para o paradigma funcional, conheceu Java, uma linguagem feita para orientação a objetos. JavaScript disse a Java que se chamava assim porque seus pais eram grandes fãs deste e que por causa do nome que lhe foi dado, se inspirava muito em Java. Java então, questionou se JavaScript sabia sobre orientação a objetos, o qual respondeu que sim, o que fez com que Java imediatamente o convidade para trabalhar em sua empresa, a Oracle. O convite foi aceito por JavaScript. No primeiro dia de trabalho, no entanto, ao ver como JavaScript se atrapalhava nos conceitos de orientação a objetos, ao notar a roupa cafona que ele estava usando e como xingava o computador por tentar sem sucesso usar um "objeto" sem ter definido um modelo geral para ele, Java o demitiu por ver que aquela não era a sua função, já que JavaScript era uma linguagem sem classe
+let randomStoryPtBr = `Certo dia, JavaScript, uma linguagem pensada para o paradigma funcional, conheceu Java, uma linguagem feita para orientação a objetos. JavaScript disse a Java que se chamava assim porque seu pai era um grande fã deste e que por causa do nome que lhe foi dado, se inspirava muito em Java. Java então, questionou se JavaScript sabia sobre orientação a objetos, o qual respondeu que sim, o que fez com que Java imediatamente o convidade para trabalhar em sua empresa, a Oracle. O convite foi aceito por JavaScript. No primeiro dia de trabalho, no entanto, ao ver como JavaScript se atrapalhava nos conceitos de orientação a objetos, ao notar a roupa cafona que ele estava usando e como xingava o computador por tentar sem sucesso usar um "objeto" sem ter definido um modelo geral para ele, Java o demitiu por ver que aquela não era a sua função, já que JavaScript era uma linguagem sem classe
 `
 
 function replaceWords (name1, name2, text, oldWords, newWords) {
@@ -18,6 +18,7 @@ function replaceWords (name1, name2, text, oldWords, newWords) {
 function result (language) {
 	const customName1 = document.getElementById('customname-1')
 	const customName2 = document.getElementById('customname-2')
+	const story = document.querySelector('.story')
 	const name1 = customName1.value
 	const name2 = customName2.value
 	if (name1 === '' || name2 === '') {
@@ -25,6 +26,7 @@ function result (language) {
 		return
 	}
 	if (document.getElementById('us').checked) {
+		if (story.style.visibility === 'visible') story.style.visibility = 'hidden'
 		const oldWords = ['functional', 'object', 'parents', 'Oracle', 'outfit', 'computer', 'class']
 		const newWords = []
 		fetch('https://random-word-api.herokuapp.com/all').then((res) => {
@@ -45,7 +47,7 @@ function result (language) {
 		})
 	}
 	if (document.getElementById('br').checked) {
-		const oldWords = ['funcional', 'objeto', 'pais', 'Oracle', 'roupa', 'computador', 'classe']
+		const oldWords = ['funcional', 'objeto', 'pai', 'Oracle', 'roupa', 'computador', 'classe']
 		const newWords = []
 		const promises = []
 		for (let i = 0; i < oldWords.length; i++) {
