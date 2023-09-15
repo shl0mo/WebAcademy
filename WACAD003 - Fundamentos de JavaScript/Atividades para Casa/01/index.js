@@ -15,13 +15,12 @@ function randomValueFromArray (array) {
 
 /* 2. TEXT STRING VARIABLE */
 
-let randomStory = `
-	Certo dia, JavaScript, uma linguagem pensada para o paradigma funcional, conheceu Java, uma linguagem feita para orientação a objetos. JavaScript disse a Java que se chamava assim porque seus pais eram grandes fãs deste e que por causa do nome que lhe foi dado, se inspirava muito em Java. Java então, questionou se JavaScript sabia sobre orientação a objetos, o qual respondeu que sim, o que fez com que Java imediatamente o convidadesse este para trabalhar em sua empresa, a Oracle. O convite foi aceito por JavaScript. No primeiro dia de trabalho, no entanto, ao ver como JavaScript se atrapalhava nos conceitos de orientação a objetos, ao notar a roupa cafona que ele estava usando e como xingava o computador por tentar sem sucesso usar um "objeto" sem ter definido um modelo geral para ele, Java o demitiu por ver que aquela não era a sua função, já que JavaScript era uma linguagem sem classe
+let randomStory = `One day, JavaScript, a language designed for the functional paradigm, met Java, a language designed for objects orientation paradigm. JavaScript told Java that it was called that because its parents were big fans of it and that because of the name given to it, it was very inspired by Java. Java then asked if JavaScript knew about object orientation, to which he replied yes, which caused Java to immediately invite him to work at his company, Oracle. The invitation was accepted via JavaScript. On the first day of work, however, seeing how JavaScript fumbled with object-oriented concepts, noticing the tacky outfit he was wearing, and how he cursed the computer for unsuccessfully trying to use an "object" without having defined a model Overall for him, Java fired him because he saw that that wasn't his role, since JavaScript was a classless language
 `
 
 /* 
- * o paradigma funcional
- * orientação a objetos
+ * functional paradigm
+ * objects orientation
  * pais
  * Oracle
  * computador
