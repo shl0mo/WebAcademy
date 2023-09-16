@@ -2,10 +2,10 @@ function loadImages () {
 	const thumbBar = document.querySelector('.thumb-bar')
 	const imagesDescriptions = [
 		'Closeup of a human eye',
-		'',
+		'Watermarks on rocks',
 		'Purple and white flowers',
 		'Anubis and his bros on an Egyptian mural',
-		''
+		'Butterfly on a leaf'
 	]
 	const numberOfImages = imagesDescriptions.length
 	for (let i = 0; i < numberOfImages; i++) {
