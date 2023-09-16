@@ -12,10 +12,12 @@ function replaceWords (name1, name2, text, oldWords, newWords) {
 		while (text.includes(oldWords[i])) text = text.replace(oldWords[i], newWords[i])
 	}
 	story.innerText = text
+	const spinnerContainer = document.querySelector('.spinner-container')
+	spinnerContainer.style.setProperty('display', 'none')
 	story.style.visibility = 'visible'
 }
 
-function result (language) {
+function result () {
 	const customName1 = document.getElementById('customname-1')
 	const customName2 = document.getElementById('customname-2')
 	const story = document.querySelector('.story')
@@ -25,6 +27,8 @@ function result (language) {
 		alert('Enter custom names')
 		return
 	}
+	const spinnerContainer = document.querySelector('.spinner-container')
+	spinnerContainer.style.setProperty('display', 'block')
 	if (document.getElementById('us').checked) {
 		if (story.style.visibility === 'visible') story.style.visibility = 'hidden'
 		const oldWords = ['functional', 'object', 'parents', 'Oracle', 'outfit', 'computer', 'class']
