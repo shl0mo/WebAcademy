@@ -4,7 +4,7 @@ const { createLink } = require('./createLink.js')
 require('dotenv').config()
 
 if (process.argv.length < 3) {
-	throw new Error('Número de arumentos inválido')
+	throw new Error('Número de argumentos inválido')
 }
 
 const PORT = process.env.PORT
@@ -20,9 +20,12 @@ const server= http.createServer((req, res) => {
 		})
 	} else {
 		fs.readFile(`.${req.url}`, 'utf-8', (err, content) => {
-			// if (err) throw new Error(err)
-			content = `<a href="/">Voltar</a><br>${content}`
-			res.end(content)
+			try {
+				content = `<a href="/">Voltar</a><br>${content}`
+				res.end(content)
+			} catch (err) {
+				console.error(err)
+			}
 		})
 	}
 })
