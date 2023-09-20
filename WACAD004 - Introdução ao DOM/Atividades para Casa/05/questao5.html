@@ -32,14 +32,17 @@
   </ul>
   <script>
 	 const lis_lista_itens_2 = document.querySelectorAll('.lista-itens-2 li');
-	 console.log('Todos os elementos de .lista-itens-2 - Sintaxe array:');
+	 console.log('Alterar a cor de todos o itens da .lista-itens-2 - Sintaxe array:');
 	 for (let i = 0; i < lis_lista_itens_2.length; i++) {
-	 	console.log(lis_lista_itens_2[i]);
+		lis_lista_itens_2[i].style.setProperty('background-color', 'blue');
   	 }
-	console.log('Elementos de .lista-itens-2 que contém a classe "hot" - Sintaxe item:');
+	console.log('Substituir a classe "hot" dos elementos que a possuem pela classe "cold" - Sintaxe item:');
 	for (let i = 0; i < lis_lista_itens_2.length; i++) {
 		const el_class_list = lis_lista_itens_2.item(i).classList
-		if (el_class_list.contains('hot')) console.log(lis_lista_itens_2.item(i))
+		if (el_class_list.contains('hot')) {
+			el_class_list.replace('hot', 'cold')
+			console.log(lis_lista_itens_2.item(i))
+		}
 	}
   </script>
 </body>
