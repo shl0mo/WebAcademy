@@ -1,0 +1,21 @@
+<body>
+	<h1>Várias listas</h1>
+
+	<div>
+		<p id="lista-titulo" name="lista">Lista de itens:</p>
+	</div>
+
+	<ul id="lista-itens-1">
+		<li id="one" class="hot">item a</li>
+		<li id="two" class="hot">item b</li>
+		<li id="three" class="hot">item c</li>
+		<li id="four">item d</li>
+	</ul>
+	<script>
+		const items_list = document.querySelector('#lista-itens-1')
+		const five = document.createElement('li')
+		five.id = 'Five'
+		five.textContent = 'item e'
+		items_list.appendChild(five)
+	</script>
+</body>
