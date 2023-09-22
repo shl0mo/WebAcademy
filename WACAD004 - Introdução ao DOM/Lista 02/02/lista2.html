@@ -1,0 +1,22 @@
+<body>
+	<h1>Várias listas</h1>
+
+	<div>
+		<p id="lista-titulo" name="lista">Lista de itens:</p>
+	</div>
+
+	<ul id="lista-itens-1">
+		<li id="one" class="hot">item a</li>
+		<li id="two" class="hot">item b</li>
+		<li id="three" class="hot">item c</li>
+		<li id="four">item d</li>
+	</ul>
+	<script>
+		// Alterar o texto do parágrafo com id "lista-titulo" para "Nova Lista de Itens"
+		const lista_titulo = document.querySelector('#lista-titulo')
+		lista_titulo.firstChild.nodeValue = 'Nova Lista de Itens'
+		// Alterar o texto de "two" para "Item B Atualizado"
+		const two = document.querySelector('#two')
+		two.textContent = 'Item B Atualizado'
+	</script>
+</body>
