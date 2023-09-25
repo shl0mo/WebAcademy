@@ -1,0 +1,50 @@
+<body>
+  <h1>To-do</h1>
+
+  <div>
+    <p id="lista-titulo" name="lista">Lista de atividades:</p>
+  </div>
+
+  <div>
+    <input placeholder="Digite aqui o item" />
+    <button>Adicionar</button>
+  </div>
+
+  <ul id="lista-itens">
+    <li>item a</li>
+  </ul>
+
+  <div>
+    <button>Remover último item</button>
+  </div>
+  <script>
+	  const buttons = document.querySelectorAll('button')
+	  const add_button = buttons[0]
+	  const remove_button = buttons[1]
+
+	  add_button.addEventListener('click', addItem)
+	  remove_button.addEventListener('click', removeItem)
+
+	  function addItem () {
+	  	const content = document.querySelector('input').value
+		const ul = document.querySelector('ul')
+		if (content === '') {
+			alert('Preencha todos os campos')
+			return
+		}
+		const new_li = document.createElement('li')
+		new_li.textContent = content
+		ul.appendChild(new_li)
+	  }
+
+	  function removeItem () {
+	  	const ul = document.querySelector('ul')
+		if (ul.children.length === 0) {
+			alert('Lista vazia')
+			return
+		}
+		const last_child = ul.lastElementChild
+		ul.removeChild(last_child)
+	  }
+  </script>
+</body>
