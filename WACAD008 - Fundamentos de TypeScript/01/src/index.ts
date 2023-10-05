@@ -2,4 +2,6 @@ function helloWorldTypeScript () {
 	return "Hello world"
 }
 
-console.log(helloWorldTypeScript())
+function funcao() {
+	alert('Botao clicado')
+}
