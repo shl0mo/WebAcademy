@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+		<style>
+.button-add {
+	font-size: 18px;
+	color: white;
+}
+
+.input-result {
+	font-size: 48px;
+}
+		</style>
+	</head>
+	<body>
+		<div class="container m-0">
+			<div class="row vh-100 vw-100">
+				<div class="col-5 bg-dark position-relative shadow pb-4">
+					<div class="d-flex flex-column justify-content-center align-items-center">
+						<button class="btn btn-primary button-add shadow w-50 m-4" data-bs-toggle="modal" data-bs-target="#modal-add-card">
+							<i class="bi bi-plus"></i>
+							Adicionar aluno
+						</button>
+						<div class="container d-flex flex-column align-items-center" id="students-info-container">
+						</div>
+					</div>
+				</div>
+				<div class="col-7 position-relative">
+					<div class="container d-flex flex-column align-items-center justify-content-center vh-100 position-fixed">
+						<div class="row w-100 h-25 d-flex">
+							<label for="input-ages-mean">Média das idades</label>
+							<input class="bg-light border-0 h-75 rounded input-result" id="input-ages-mean" readonly/>
+						</div>
+						<div class="row w-100 h-25">
+							<label for="input-heights-mean">Média das alturas</label>
+							<input class="bg-light border-0 h-75 rounded input-result" id="input-heights-mean" readonly/>
+						</div>
+						<div class="row w-100 h-25">
+							<label for="input-weights-mean">Média dos pesos</label>
+							<input class="bg-light border-0 h-75 rounded input-result" id="input-weights-mean" readonly/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal" tabindex="-1" id="modal-add-card">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Adicionar aluno</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar" id="close-modal"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group mb-3">
+								<label for="input-name">Nome</label>
+								<input type="text" class="form-control" id="input-name" required>
+							</div>
+							<div class="form-group mb-3">
+								<label for="input-surname">Sobrenome</label>
+								<input type="text" class="form-control" id="input-surname" required>
+							</div>
+							<div class="form-group mb-3">
+								<label for="input-age">Idade</label>
+								<input type="number" class="form-control" id="input-age" required>
+							</div>
+							<div class="form-group mb-3">
+								<label for="input-height">Altura</label>
+								<input type="number" class="form-control" id="input-height" required>
+							</div>
+							<div class="form-group mb-3">
+								<label for="input-weight">Peso</label>
+								<input type="number" class="form-control" id="input-weight" required>
+							</div>
+							<button type="button" class="btn btn-primary w-100" id="button-add-new-student">Adicionar</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../build/index.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+	</body>
+</html>

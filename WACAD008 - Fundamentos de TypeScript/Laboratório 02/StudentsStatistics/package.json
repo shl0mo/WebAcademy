@@ -1,0 +1,20 @@
+{
+	"name": "laboratorio2",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon src/index.ts",
+		"build": "npx tsc",
+		"start:prod": "node build/index.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/lodash": "^4.14.199",
+		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+		"lodash": "^4.17.21"
+	}
+}
