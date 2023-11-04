@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 
 const PORT = 5000;
@@ -10,12 +10,12 @@ app.use(express.json());
 
 const consumidor = prisma.consumidor;
 
-const alreadyExists = async (cpf) => {
+const alreadyExists = async (cpf: string) => {
 	const consumer = await (consumidor.findUnique({ where: { cpf } }));
 	return !!(consumer);
 }
 
-app.get('/get_consumers', async (req, res) => {
+app.get('/get_consumers', async (req: Request, res: Response) => {
 	try {
 		const consumers = await consumidor.findMany();
 		return res.status(200).json(consumers);
@@ -24,8 +24,8 @@ app.get('/get_consumers', async (req, res) => {
 	}
 });
 
-app.get('/get_consumer/:cpf', async (req, res) => {
-	const cpf = req.params.cpf;
+app.get('/get_consumer/:cpf', async (req: Request, res: Response) => {
+	const cpf: string = req.params.cpf;
 	try {
 		if (await alreadyExists(cpf)) {
 			const consumer = await consumidor.findUnique({ where: { cpf }});
@@ -37,7 +37,7 @@ app.get('/get_consumer/:cpf', async (req, res) => {
 	}
 });
 
-app.post('/create_consumer', async (req, res) => {
+app.post('/create_consumer', async (req: Request, res: Response) => {
 	const consumer = req.body;
 	try {
 		if (await alreadyExists(consumer.cpf)) {
@@ -50,8 +50,8 @@ app.post('/create_consumer', async (req, res) => {
 	}
 });
 
-app.put('/update_consumer/:cpf', async (req, res) => {
-	const cpf = req.params.cpf;
+app.put('/update_consumer/:cpf', async (req: Request, res: Response) => {
+	const cpf: string = req.params.cpf;
 	const updated_consumer = req.body;
 	console.log(cpf);
 	console.log(updated_consumer);
@@ -66,8 +66,8 @@ app.put('/update_consumer/:cpf', async (req, res) => {
 	}
 });
 
-app.delete('/delete_consumer/:cpf', async (req, res) => {
-	const cpf = req.params.cpf;
+app.delete('/delete_consumer/:cpf', async (req: Request, res: Response) => {
+	const cpf: string = req.params.cpf;
 	try {
 		if (await alreadyExists(cpf)) {
 			await consumidor.delete({ where: { cpf } });
