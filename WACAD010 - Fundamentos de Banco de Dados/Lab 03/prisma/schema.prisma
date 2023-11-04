@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+model consumidor {
+  cpf             String   @unique @db.VarChar(11)
+  nome_completo   String   @db.VarChar(200)
+  data_nascimento String   @db.VarChar(10)
+  celular         String   @db.VarChar(20)
+  email           String   @db.VarChar(45)
+
+  enderecos          consumidor_endereco[]
+  compras_consumidor compra_produto_endereco[]
+
+  @@map("consumidor")
+}
+
+model endereco {
+  id       Int    @id @default(autoincrement()) @db.Int
+  endereco String @db.VarChar(300)
+
+  consumidores consumidor_endereco[]
+
+  @@map("endereco")
+}
+
+model consumidor_endereco {
+  id Int @id @default(autoincrement()) @db.Int
+
+  cpf_consumidor String
+  cpf            consumidor @relation(fields: [cpf_consumidor], references: [cpf])
+
+  id_endereco Int
+  endereco    endereco @relation(fields: [id_endereco], references: [id])
+
+  @@index([cpf_consumidor, id_endereco])
+  @@map("consumidor_endereco")
+}
+
+model produto {
+  codigo_barras         String  @id @default(uuid()) @db.VarChar(13)
+  categoria             String  @db.VarChar(100)
+  subcategoria          String  @db.VarChar(100)
+  fabricante            String  @db.VarChar(100)
+  preco_base            Decimal @db.Decimal
+  quantidade_disponivel Int     @db.Int
+
+  compras_produto compra_produto_endereco?
+
+  id_modelo String
+  modelo    modelo @relation(fields: [id_modelo], references: [id])
+
+  @@index([id_modelo])
+  @@map("produto")
+}
+
+model modelo {
+  id     String @id @default(uuid()) @db.VarChar(100)
+  modelo String @db.VarChar(100)
+
+  id_numero_serie String
+  numero_serie    numero_serie @relation(fields: [id_numero_serie], references: [id])
+
+  produtos produto[]
+
+  @@index([id_numero_serie])
+  @@map("modelo")
+}
+
+model numero_serie {
+  id           String @id @default(uuid()) @db.VarChar(9)
+  numero_serie String @db.VarChar(9)
+
+  modelos modelo[]
+
+  @@map("numero_serie")
+}
+
+model compra {
+  id              Int      @id @default(autoincrement()) @db.Int
+  data            DateTime @default(now())
+  hora            String   @db.VarChar(20)
+  desconto        Decimal  @db.Decimal
+  forma_pagamento String   @db.VarChar(50)
+  total_compra    Decimal  @db.Decimal
+  endereco_envio  String   @db.VarChar(300)
+
+  compra_compras compra_produto_endereco?
+
+  @@map("compra")
+}
+
+model compra_produto_endereco {
+  id                    Int    @id @default(autoincrement()) @db.Int
+  id_compra             Int    @unique
+  codigo_barras_produto String @unique
+  cpf_consumidor        String
+
+  compra     compra?    @relation(fields: [id_compra], references: [id])
+  produto    produto    @relation(fields: [codigo_barras_produto], references: [codigo_barras])
+  consumidor consumidor @relation(fields: [cpf_consumidor], references: [cpf])
+
+  @@index([id_compra, codigo_barras_produto, cpf_consumidor])
+  @@map("compra_produto_endereco")
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "foreignKeys"
+}
