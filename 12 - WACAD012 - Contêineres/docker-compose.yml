@@ -4,13 +4,20 @@ services:
     build: ./frontend
     ports:
       - '8000:80'
+    depends_on:
+      - backend
   backend:
     build: ./backend
     ports:
       - '4444:4444'
     network_mode: 'host'
+    depends_on:
+      mysql-db:
+        condition: service_healthy
   mysql-db:
     image: mysql:latest
+    restart: always
+    command: --init-file /data/application/init.sql
     environment:
         MYSQL_ROOT_PASSWORD: password
     ports:
@@ -18,7 +25,10 @@ services:
     expose:
       - '3306'
     volumes:
-      - ./mysql_volumes:/var/lib/mysql
+      - ./mysql-volume:/var/lib/mysql
+      - ./mysql-init-database/init.sql:/data/application/init.sql
+    healthcheck:
+      test: "exit 0"
   phpmyadmin:
     image: phpmyadmin:latest
     restart: always
