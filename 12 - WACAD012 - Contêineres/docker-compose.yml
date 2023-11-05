@@ -1,0 +1,28 @@
+version: '3.9'
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - '8000:80'
+  backend:
+    build: ./backend
+    ports:
+      - '4444:4444'
+    network_mode: 'host'
+  mysql-db:
+    image: mysql:latest
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./mysql_volumes:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      - PMA_ARBITRARY=1
