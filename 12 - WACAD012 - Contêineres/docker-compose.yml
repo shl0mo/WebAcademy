@@ -14,6 +14,8 @@ services:
     depends_on:
       mysql-db:
         condition: service_healthy
+    volumes:
+      - ./backend/log:/app/log
   mysql-db:
     image: mysql:latest
     restart: always
