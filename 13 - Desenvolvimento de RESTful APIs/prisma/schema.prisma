@@ -1,0 +1,31 @@
+generator client {
+	provider = "prisma-client-js"
+}
+
+
+model Produto {
+	id String @id @default(uuid()) @db.Char(40)
+	nome String @unique @db.VarChar(100)
+	preco Decimal @db.Decimal
+	estoque Int @db.Int
+	createdAt DateTime @default(now()) @map("created_at")
+	updatedAt DateTime @updatedAt @map("updated_at")
+	@@map("produtos")
+}
+
+model Usuario {
+	id String @id @default(uuid()) @db.Char(40)
+	cpf String @unique @db.Char(11) /// A validação do cpf, incluindo a garantia que ele é uma string constituída apenas de números seria feita no front
+	nome String @db.VarChar(100)
+	sobrenome String @db.VarChar(100)
+	endereco String @db.VarChar(200)
+	createdAt DateTime @default(now()) @map("created_at")
+	updatedAt DateTime @updatedAt @map("updated_at")
+	@@map("usuarios")
+}
+
+
+datasource db {
+	provider = "mysql"
+	url      = env("DATABASE_URL")
+}
